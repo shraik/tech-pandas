@@ -1,4 +1,5 @@
 import pandas as pd
+import sys
 
 df = pd.read_excel("demodata/SampleData.xlsx", sheet_name="SalesOrders")
 print(df.head())
@@ -14,3 +15,6 @@ df.to_excel(writer, sheet_name="Sheet1", startcol=3)
 
 writer.close()
 print("Okay, exit(0)")
+
+print(sys.prefix)
+print(sys.base_prefix)
