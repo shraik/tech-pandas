@@ -13,8 +13,28 @@
 Скрипты активации добавляются при установке и расположены в: 
 > C:\dist3\.venv\Scripts
 
-Установка необходимых библиотек с использованием "pip"
+# Установка необходимых библиотек с использованием "pip"
 
-> c:\>pypa\pip install pandas, xlsxwriter, openpyxl
+Для удобства в каталоге "C:\pypa" создать файл 1.cmd следующего содержания:
+> chcp 65001
+> call .venv\Scripts\activate.bat 
 
+```
+chcp 65001
+call .venv\Scripts\activate.bat 
+```
 
+1. Запустить cmd в каталоге "C:\pypa"
+1. Для активации venv запустить созданный скрипт 1.cmd или команду .venv\Scripts\activate.bat
+    после активации venv изменяется вид приглашения командной строки с 
+    "C:\pypa>" -> "(.venv) C:\pypa>"
+1. Запустить команду установки библиотек:
+> (.venv) C:\pypa>\pip install pandas, xlsxwriter, openpyxl
+
+# Дополнительная информация
+Для проверки venv в котором выполняется ваш скрипт можно воспользоваться следующим кодом:
+```
+import sys
+print(sys.prefix)
+print(sys.base_prefix)
+```
