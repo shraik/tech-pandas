@@ -16,9 +16,6 @@
 # Установка необходимых библиотек с использованием "pip"
 
 Для удобства в каталоге "C:\pypa" создать файл 1.cmd следующего содержания:
-> chcp 65001
-> call .venv\Scripts\activate.bat 
-
 ```
 chcp 65001
 call .venv\Scripts\activate.bat 
