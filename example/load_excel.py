@@ -11,7 +11,7 @@ print(df.head(5))
 print("\n Структура")
 print(df.dtypes)
 
-# настроить "писаря"
+# настроить объект "писарь"
 writer = pd.ExcelWriter(
     "demodata/out_to_file.xlsx",
     date_format="YYYY-MM-DD",
@@ -22,6 +22,13 @@ writer = pd.ExcelWriter(
 
 df.to_excel(writer, sheet_name="Sheet1", startcol=3)
 writer.close()
+
+# записать и считать parquet
+df.to_parquet("out_to_file.parquet")
+dfp=pd.read_parquet("out_to_file.parquet")
+print("\n Структура считанного parquet")
+print(dfp.dtypes)
+
 
 print("\nВывести пути venv. Если пути разные скрипт выполняется в venv")
 print(sys.prefix)
