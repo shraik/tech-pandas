@@ -9,9 +9,14 @@ df.dropna(subset="Col5", axis="index", inplace=True)
 
 - Удаление колонок "Col1", "Col4"
 ```
-df_fakt.drop(labels=["Col1", "Col4"], axis="columns", inplace=True)
+df.drop(labels=["Col1", "Col4"], axis="columns", inplace=True)
 ```
 
+- Удаление строк по условию: значение "Col1"==1
+    !Важное замечание, удаление идёт по индексам строк, соответственно он должен быть уникальным. Если производилась операция слияния датафреймов надо выполнить resetindex.
+```
+df.drop(df[df["Col1"] ==1].index, inplace=True)
+```
 ### Преобразование типов
 
 - Заполнить нулями отсутствующие значения и преобразовать колонку "Суммы" в тип "Int64"
